@@ -8,7 +8,7 @@ If you found any bug on nesDS, just tell me. Maybe I could fix it.
 
 09-15-2023
 nibbles27:
-	- Added Screen selection presets, 14 different Palettes's, and Restored Gamma selection (5 levels)
+	- Added Screen selection presets, 14 different Palettes, and Restored Gamma selection (5 levels)
 
 08-14-2018 
 coto: 
