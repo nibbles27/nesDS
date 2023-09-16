@@ -8,6 +8,11 @@ If you found any bug on nesDS, just tell me. Maybe I could fix it.
 
 09-15-2023
 nibbles27:
+	- Restored Debug menu so as to not break Mapper 4 games to a crash (like Dragon Warrior 1)
+	- Restored really bad Punch Out hack from PNES-9.98
+
+08-01-2023
+nibbles27:
 	- Added Screen selection presets, 14 different Palettes, and Restored Gamma selection (5 levels)
 
 08-14-2018 
