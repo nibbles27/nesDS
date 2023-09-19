@@ -13,8 +13,7 @@ nibbles27:
 	- mapper 140
 	- mapper 249
 
-Some of these use existing mappers just added in support for them in cart.s and added/modified some mapper files
-to add support for these!
+Some of these use existing mappers just added in support for them in cart.s and added/modified some mapper files to add support for these!
 
 09-15-2023
 nibbles27:
