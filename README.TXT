@@ -5,9 +5,20 @@ Since the 0.40 version, I ported the code of EX Edtion to the original nesDS, no
 
 If you found any bug on nesDS, just tell me. Maybe I could fix it.
 
+09-17-2023
+nibbles27:
+	- Added in support for mappers:
+	- mapper 42
+	- mapper 119
+	- mapper 140
+	- mapper 249
+
+Some of these use existing mappers just added in support for them in cart.s and added/modified some mapper files
+to add support for these!
+
 09-15-2023
 nibbles27:
-	- Restored Debug menu so as to not break Mapper 4 games to a crash (like Dragon Warrior 1)
+	- Restored Debug menu so as to not break Mapper 4 games and others to a crash (like Dragon Warrior 1)
 	- Restored bad Punch Out hack from PNES-9.98
 
 08-01-2023
