@@ -76,10 +76,14 @@ mappertbl:
 	.word 105,mapper105init
 	.word 118,mapper118init
 	.word 119,mapper119init
+	.word 121,mapper4init
 	.word 140,mapper66init
 	.word 151,mapper151init
 	.word 152,mapper152init
+	.word 153,mapper16init
+	.word 157,mapper16init
 	.word 158,mapper64init
+	.word 159,mapper159init	
 	.word 163,mapper163init
 	.word 180,mapper180init
 	.word 184,mapper184init
