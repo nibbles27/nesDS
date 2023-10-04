@@ -76,7 +76,6 @@ mappertbl:
 	.word 105,mapper105init
 	.word 118,mapper118init
 	.word 119,mapper119init
-	.word 121,mapper4init
 	.word 140,mapper66init
 	.word 151,mapper151init
 	.word 152,mapper152init
@@ -555,4 +554,4 @@ map89ABCDEF_:
 	str_ r0,memmap_tbl+24
 	str_ r0,memmap_tbl+28
 	b flush
-@---------------------------------------------------------------------------------
+@--------------------------------------------------------------------------------
