@@ -8,7 +8,7 @@ If you found any bug on nesDS, just tell me. Maybe I could fix it.
 09-30-2023
 nibbles27:
 
-	- Also updated to include map 159 for DBZ 2 and 3 translations, please set to 159 for these two titles with iNES Header Editor - https://www.romhacking.net/utilities/1352/
+	- Also updated to include map 159 for DBZ 2 and 3 translations, please set from 16 to 159 for these two titles with iNES Header Editor - https://www.romhacking.net/utilities/1352/
 
 09-15-2023
 nibbles27:
