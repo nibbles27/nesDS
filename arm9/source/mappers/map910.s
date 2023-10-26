@@ -23,6 +23,13 @@ mapper9init:	@really bad Punchout hack
 @---------------------------------------------------------------------------------
 	.word empty_W,writeAB,write,write
 map10start:
+@	mov r0, #0
+@	str_ r0, reg
+@	mov r0, #4
+@	strb_ r0, reg1
+@	mov r0, #0xFE
+@	strb_ r0, latch_a
+@	strb_ r0, latch_b
 
 	ldrb_ r0,cartflags
 	bic r0,r0,#SCREEN4	@(many punchout roms have bad headers)
@@ -30,6 +37,9 @@ map10start:
 
 	ldr r0,=mapper_9_hook
 	str_ r0,scanlinehook
+	
+@	adr r0,framehook
+@	str_ r0,newframehook
 	
 	adr r0, chrlatch2
 	str_ r0, ppuchrlatch
@@ -119,22 +129,6 @@ mapper_9_hook:
 	bl chr4567_
 h9:
 	fetch 0
-@---------------------------------------------------------------------------------
-mapper9BGcheck: @called from PPU.s, r0=FD-FF
-@---------------------------------------------------------------------------------
-	cmp r0,#0xff
-	moveq pc,lr
-
-	ldr r1,=latchtbl
-	and r2,addy,#0x3f
-	cmp r2,#0x10
-	strlob r0,[r1,addy,lsr#6]
-
-	mov pc,lr
-
-latchtbl:
-.skip 32
-
 @---------------------------------------------------------------------------------
 framehook:
 	stmfd sp!, {r3-r9}
@@ -331,3 +325,19 @@ chrlatch2:
 	strb_ r0, latch_b
 	ldrb_ r0, reg3
 	b chr4567_
+
+@---------------------------------------------------------------------------------
+mapper9BGcheck: @called from PPU.s, r0=FD-FF
+@---------------------------------------------------------------------------------
+	cmp r0,#0xff
+	moveq pc,lr
+
+	ldr r1,=latchtbl
+	and r2,addy,#0x3f
+	cmp r2,#0x10
+	strlob r0,[r1,addy,lsr#6]
+
+	mov pc,lr
+
+latchtbl:
+.skip 32
