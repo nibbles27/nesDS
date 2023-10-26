@@ -23,13 +23,13 @@ mapper9init:	@really bad Punchout hack
 @---------------------------------------------------------------------------------
 	.word empty_W,writeAB,write,write
 map10start:
-@	mov r0, #0
-@	str_ r0, reg
-@	mov r0, #4
-@	strb_ r0, reg1
-@	mov r0, #0xFE
-@	strb_ r0, latch_a
-@	strb_ r0, latch_b
+	mov r0, #0
+	str_ r0, reg
+	mov r0, #4
+	strb_ r0, reg1
+	mov r0, #0xFE
+	strb_ r0, latch_a
+	strb_ r0, latch_b
 
 	ldrb_ r0,cartflags
 	bic r0,r0,#SCREEN4	@(many punchout roms have bad headers)
@@ -38,8 +38,8 @@ map10start:
 	ldr r0,=mapper_9_hook
 	str_ r0,scanlinehook
 	
-@	adr r0,framehook
-@	str_ r0,newframehook
+	adr r0,framehook
+	str_ r0,newframehook
 	
 	adr r0, chrlatch2
 	str_ r0, ppuchrlatch
@@ -123,10 +123,10 @@ mapper_9_hook:
 	ldr r2,=latchtbl
 	ldrb r0,[r2,r0,lsr#3]
 
-	cmp r0,#0xfd
-	ldreqb_ r0,reg2
-	ldrneb_ r0,reg3
-	bl chr4567_
+@	cmp r0,#0xfd
+@	ldreqb_ r0,reg2
+@	ldrneb_ r0,reg3
+@	bl chr4567_
 h9:
 	fetch 0
 @---------------------------------------------------------------------------------
@@ -171,9 +171,13 @@ latlp:
 	streqb_ r5, latch_a
 	strneb_ r5, latch_b
 
+	ldreqb_ r2,reg2
+	ldrneb_ r2,reg3
+	beq chr4567_
+
 	ldr r9, =currentBG
 	ldr r8, [r9]			@get the current bg.
-	adr r7, bgchrdata		@to check if the chrbg is cached...
+	adr r7, latchtbl		@to check if the chrbg is cached...
 	ldrb r4, [r7, r8, lsr#3]
 
 rechr:
@@ -224,11 +228,6 @@ chrlp:
 lend:
 	ldmfd sp!, {r3-r9}
 	mov pc, lr
-
-
-@-----------------------------------------------
-bgchrdata:
-	.skip 32		@30 needed, equals to SLOTS..
 
 
 
