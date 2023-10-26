@@ -171,9 +171,9 @@ latlp:
 	streqb_ r5, latch_a
 	strneb_ r5, latch_b
 
-	ldreqb_ r2,reg2
-	ldrneb_ r2,reg3
-	beq chr4567_
+@	ldreqb_ r2,reg2
+@	ldrneb_ r2,reg3
+@	beq chr4567_
 
 	ldr r9, =currentBG
 	ldr r8, [r9]			@get the current bg.
