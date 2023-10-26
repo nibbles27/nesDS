@@ -13,9 +13,9 @@ nibbles27:
 nibbles27:
 	- Added in support for mappers:
 	- mapper 42
-	- mapper 119
+	- mapper 119 - partial
 	- mapper 140
-	- mapper 249
+	- mapper 249 - partial
 
 Some of these use existing mappers just added in support for them in cart.s and added/modified some mapper files to add support for these!
 
