@@ -7,7 +7,7 @@
 	.global mapper9init
 	.global mapper10init
 	.global mapper9BGcheck
-	.global mapper_9_hook
+@	.global mapper_9_hook
 
 	reg = mapperdata
 	reg0 = mapperdata + 0
@@ -35,8 +35,8 @@ map10start:
 	bic r0,r0,#SCREEN4	@(many punchout roms have bad headers)
 	strb_ r0,cartflags
 
-	ldr r0,=mapper_9_hook
-	str_ r0,scanlinehook
+@	ldr r0,=mapper_9_hook
+@	str_ r0,scanlinehook
 	
 	adr r0,framehook
 	str_ r0,newframehook
@@ -111,24 +111,24 @@ f000: @-------------------------
 	tst r0,#1
 	b mirror2V_
 @------------------------------
-mapper_9_hook:
+@mapper_9_hook:
 @---------------------------------------------------------------------------------
-	ldr_ r0,scanline
-	sub r0,r0,#1
-	tst r0,#7
-	ble h9
-	cmp r0,#239
-	bhi h9
-
-	ldr r2,=latchtbl
-	ldrb r0,[r2,r0,lsr#3]
-
+@	ldr_ r0,scanline
+@	sub r0,r0,#1
+@	tst r0,#7
+@	ble h9
+@	cmp r0,#239
+@	bhi h9
+@
+@	ldr r2,=latchtbl
+@	ldrb r0,[r2,r0,lsr#3]
+@
 @	cmp r0,#0xfd
 @	ldreqb_ r0,reg2
 @	ldrneb_ r0,reg3
 @	bl chr4567_
-h9:
-	fetch 0
+@h9:
+@	fetch 0
 @---------------------------------------------------------------------------------
 framehook:
 	stmfd sp!, {r3-r9}
